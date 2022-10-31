@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+  <meta charset="UTF-8">
+  <title>Innventory Home Page</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container text-center">
+  <h1>Welcome To My Test</h1>
+
+  <div class="p-2">
+    <a class="h2" th:href="@{/categories}">List Categories</a>
+  </div>
+
+
+  <div class="p-2">
+    <a class="h2" th:href="@{/subcategories}">List Sub Categories</a>
+  </div>
+
+  <div class="p-2">
+    <a class="h2" th:href="@{/statuses}">List Statuses</a>
+  </div>
+
+  <div class="p-2">
+    <a class="h2" th:href="@{/brands}">List Brands</a>
+  </div>
+
+  <div class="p-2">
+    <a class="h2" th:href="@{/products}">List Products</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+  <meta charset="UTF-8">
+  <title>Innventory Home Page</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container text-center">
+
+  <h1>List Products</h1>
+  <br>
+  <button class="float-left m-5 btn btn-dark">
+    <a th:href="@{/products/new}">Add new product</a>
+  </button>
+  <br>
+  <div class="p-1">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th>
+          No
+        </th>
+        <th>
+          Product Name
+        </th>
+        <th>
+          Brand Name
+        </th>
+        <th>
+          Subcategory
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          Color
+        </th>
+        <th>
+          Origin price
+        </th>
+        <th>
+          Sell price
+        </th>
+        <th>
+          Desciption
+        </th>
+        <th>
+          Status
+        </th>
+        <th>
+          Function
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="pro : ${products}">
+        <tr>
+          <td>[[${pro.id}]]</td>
+          <td>[[${pro.product_name}]]</td>
+          <td>[[${pro.brands.toString()}]]</td>
+          <td>[[${pro.subCategory.sub_cate_name}]]</td>
+          <td>[[${pro.quantity}]]</td>
+          <td>[[${pro.color}]]</td>
+          <td>[[${pro.origin_price}]]</td>
+          <td>[[${pro.sell_price}]]</td>
+          <td>[[${pro.description}]]</td>
+          <td>[[${pro.staTus.status_name}]]</td>
+          <td>
+            <a th:href="@{'/products/see/'+${pro.id}}">See</a> |
+            <a th:href="@{'/products/update/'+${pro.id}}">Update</a>
+          </td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

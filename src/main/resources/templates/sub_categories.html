@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+  <meta charset="UTF-8">
+  <title>Innventory Home Page</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container text-center">
+  <h1>List Sub Categories</h1>
+  <br>
+  <button class="float-left m-5 btn btn-primary btn-light">
+    <a th:href="@{/subcategories/new}">Add new sub category</a>
+  </button>
+  <br>
+  <div class="p-5">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Mã
+        </th>
+        <th>
+          Tên
+        </th>
+        <th>
+          Tên loại
+        </th>
+        <th>
+
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="subcate : ${sub_categories}">
+        <tr>
+          <td>[[${subcate.id}]]</td>
+          <td>[[${subcate.sub_cate_code}]]</td>
+          <td>[[${subcate.sub_cate_name}]]</td>
+          <td>[[${subcate.Category.cate_name}]]</td>
+          <td>
+              <a th:href="@{'/subcategories/delete/'+${subcate.id}}">Delete</a>
+              <a th:href="@{'/subcategories/see/'+${subcate.id}}">See detail</a>
+              <a th:href="@{'/subcategories/update/'+${subcate.id}}">Update</a>
+          </td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
